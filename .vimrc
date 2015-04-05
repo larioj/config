@@ -97,3 +97,12 @@ hi Folded ctermbg=Black
 hi Folded ctermfg=Yellow
 nnoremap tf zM 
 nnoremap tu zR
+
+"CtrlP
+let g:ctrlp_working_path_mode = 'ra'
+nnoremap to :CtrlP<CR>
+nnoremap tp :CtrlP
+
+"Whitespace!!
+set list
+set listchars=tab:>.,trail:●,extends:#,nbsp:●
