@@ -25,6 +25,7 @@ Plugin 'motus/pig.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'Townk/vim-autoclose'
 Plugin 'OmniSharp/omnisharp-vim'
+Plugin 'kien/ctrlp.vim'
 " Plugin 'vim-scripts/closeta.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
@@ -55,6 +56,7 @@ filetype plugin indent on    " required
 syntax on
 filetype plugin indent on
 set relativenumber
+set number
 set smartindent
 set tabstop=2
 set shiftwidth=2
