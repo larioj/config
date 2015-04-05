@@ -93,3 +93,5 @@ nnoremap tk <C-T>
 set foldmethod=indent
 hi Folded ctermbg=Black
 hi Folded ctermfg=Yellow
+nnoremap zM tf
+nnoremap zR tu
