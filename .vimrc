@@ -85,6 +85,10 @@ inoremap { {<CR>}<Esc>ko
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
+"Cags Shortcuts
+nnoremap tj <C-]>
+nnoremap tk <C-T>
+
 "Folding
 set foldmethod=indent
 hi Folded ctermbg=Black
