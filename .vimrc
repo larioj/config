@@ -85,7 +85,7 @@ inoremap { {<CR>}<Esc>ko
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
-"Cags Shortcuts
+"Ctags Shortcuts
 nnoremap tj <C-]>
 nnoremap tk <C-T>
 
