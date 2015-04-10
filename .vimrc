@@ -81,6 +81,7 @@ nnoremap te  :tabedit<Space>
 nnoremap tm  :tabm<Space>
 
 "Parenthesis matching
+let g:AutoClosePairs_del = "{"
 inoremap { {<CR>}<Esc>ko
 
 "Numbering
@@ -95,7 +96,7 @@ nnoremap tk <C-T>
 set foldmethod=indent
 hi Folded ctermbg=Black
 hi Folded ctermfg=Yellow
-nnoremap tf zM 
+nnoremap tf zM
 nnoremap tu zR
 
 "CtrlP
