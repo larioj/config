@@ -26,6 +26,9 @@ Plugin 'godlygeek/tabular'
 Plugin 'Townk/vim-autoclose'
 Plugin 'OmniSharp/omnisharp-vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'php.vim-html-enhanced'
+"Plugin '2072/PHP-Indenting-for-VIm'
+"Plugin 'StanAngeloff/php.vim'
 " Plugin 'vim-scripts/closeta.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
@@ -101,9 +104,15 @@ nnoremap tu zR
 
 "CtrlP
 let g:ctrlp_working_path_mode = 'ra'
-nnoremap to :CtrlP<CR>
-nnoremap tp :CtrlP
+nnoremap to :tabedit<Space><CR>:CtrlP<CR>
+nnoremap tp :tabedit<Space><CR>:CtrlP 
 
 "Whitespace!!
 set list
 set listchars=tab:>.,trail:●,extends:#,nbsp:●
+
+"Spell Checking
+set spell
+hi clear SpellBad
+hi clear SpellCap
+hi SpellBad cterm=underline
