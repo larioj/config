@@ -1,6 +1,6 @@
 [user]
   name = Jesus E. Larios Murillo
-  email = larioj@cs.washington.edu
+  email = preparedfortherain@gmail.com
 
 [alias]
   co = checkout
@@ -12,3 +12,5 @@
   dump = cat-file -p
 [core]
   editor = /usr/bin/vim
+[push]
+  default = simple
