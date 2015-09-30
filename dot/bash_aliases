@@ -176,3 +176,4 @@ export PATH="$HOME/Library/Haskell/bin:$PATH"
 
 # Editor
 alias e="vim"
+alias c="cd"

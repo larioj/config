@@ -2,11 +2,17 @@
 # Script must be run from the DotFiles directory.
 
 # Control Flow
-showEvents="true"
+showEvents="false"
 actionDic=(
-"setup:makeLinks"
-"cleanup:removeLinks"
+"s:makeLinks"
+"c:removeLinks"
+"m:both"
 )
+
+both () {
+  removeLinks
+  makeLinks
+}
 
 usage () {
   echo "usage: $0 action"
