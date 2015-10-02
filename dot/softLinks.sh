@@ -7,7 +7,13 @@ actionDic=(
 "s:makeLinks"
 "c:removeLinks"
 "m:both"
+"show:show"
 )
+
+show () {
+  showEvents="true"
+  both $@
+}
 
 both () {
   removeLinks
@@ -39,6 +45,13 @@ sourceFiles=(
 "gitconfig:.gitconfig"
 "haskeline:.haskeline"
 "vimrc:.vimrc"
+"vim/after:.vim/after"
+"vim/colors:.vim/colors"
+"vim/ftplugin:.vim/ftplugin"
+"vim/plugin:.vim/plugin"
+"vim/spell:"
+"vim/syntax:"
+"bide:"
 )
 
 val () {
@@ -47,6 +60,24 @@ val () {
 
 key () {
   printf "%s" ${1%%:*}
+}
+
+getDst () {
+  local dst srcName dstName item
+  item=$1
+  srcName="$(key $item)"
+  dstName="$(val $item)"
+  if [[ "" == $dstName ]]; then
+    dstName=.${srcName}
+  fi
+  dst="$destD/$dstName"
+  printf "%s" $dst
+}
+
+getSrc () {
+  local src
+  src="$sourceD/$(key $1)"
+  printf "%s" $src
 }
 
 showOrRun () {
@@ -59,14 +90,14 @@ showOrRun () {
 makeLinks () {
   for item in ${sourceFiles[*]}
   do
-    showOrRun "ln -s $sourceD/$(key $item) $destD/$(val $item)"
+    showOrRun "ln -s $(getSrc $item) $(getDst $item)"
   done
 }
 
 removeLinks () {
   for item in ${sourceFiles[*]}
   do
-    showOrRun "rm $destD/$(val $item)"
+    showOrRun "rm $(getDst $item)"
   done
 }
 

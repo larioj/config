@@ -1,26 +1,69 @@
 # My personal Aliases
 shopt -s expand_aliases
 
-# Nice little Promt in cmd.
+# Get OS Type
+platform='unknown'
+unamestr=$(uname)
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='mac'
+fi
+
+# Mac Specific Aliases
+if [[ $platform == 'mac' ]]; then
+  # Open chrome
+  chrome () {
+    /usr/bin/open -a "/Applications/Google Chrome.app" "$1"
+  }
+
+  # Use gnome ls
+  alias ls='clear; gls --color=auto --group-directories-first'
+  alias la="ls -a"
+  alias ll="ls -al"
+  alias grep="grep --color=auto"
+  alias fgrep="fgrep --color=auto"
+  alias egrep="egrep --color=auto"
+
+  # VLC
+  alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+
+  # Paths
+  # export PATH="$PATH:/Users/jesus/languages/assembler/baremetal/libs/yagarto-4.7.2/bin"
+  # export PATH="$PATH:/Users/jesus/languages/assembler/baremetal/libs/yagarto-4.7.2/tools"
+  export PATH="$PATH:/Applications/Racket v6.2/bin/"
+  export PATH="$PATH:$HOME/.local/bin"
+
+  # Export haskell libraries
+  export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+  # Aws Complete
+  complete -C '/usr/local/bin/aws_completer' aws
+
+  # Set default editor
+  export VISUAL=/usr/bin/vim
+  export EDITOR="$VISUAL"
+fi
+
+# Linux Specific Aliases
+if [[ $platform == 'linux' ]]; then
+  # Install
+  alias in="sudo apt-get install"
+fi
+
+# Nice little prompt
 PS1="LarioJ: "
-chrome () {
-  /usr/bin/open -a "/Applications/Google Chrome.app" "$1"
-}
-alias web="w3m"
 
 # General behaviour aliases
-alias ls='clear; gls --color=auto --group-directories-first'
-# alias ls='clear; ls -G'
-# alias ll="ls -alF"
-# alias l="ls -CF"
 alias cd='_(){ cd $1; ls; }; _'
 alias h="cd .."
 alias c='clear'
 alias s="history | grep"
-alias la="ls -a"
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
+
+# Cabal
+export PATH="$PATH:$HOME/.cabal/bin"
 
 # Compiler settings
 alias qcc="gcc -Wall -std=c11 -g -o"
@@ -43,14 +86,8 @@ alias gs="git status"
 # Set vim mode
 set -o vi
 
-# VLC
-alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-
 # Find name
 alias findn="find . -name"
-
-# wget: cause webster has no security
-alias wget="wget --no-check-certificate"
 
 # More powerful vim open
 vi () {
@@ -103,9 +140,6 @@ mds () {
 alias mf="touch"
 alias mfr="touch readme.md"
 
-# Install
-alias in="sudo apt-get install"
-
 # Cut and paste for files
 ct () {
 	mv $@ ~/.ct
@@ -135,20 +169,6 @@ pop() {
 	ls
 }
 
-# Paths
-# export PATH="$PATH:/Users/jesus/languages/assembler/baremetal/libs/yagarto-4.7.2/bin"
-# export PATH="$PATH:/Users/jesus/languages/assembler/baremetal/libs/yagarto-4.7.2/tools"
-export PATH="$PATH:/Applications/Racket v6.2/bin/"
-export PATH="$PATH:$HOME/.cabal/bin"
-export PATH="$PATH:$HOME/.local/bin"
-
-# Aws Complete
-complete -C '/usr/local/bin/aws_completer' aws
-
-# Set default editor
-export VISUAL=/usr/bin/vim
-export EDITOR="$VISUAL"
-
 # Git auto complete
 if [ -f ~/.git-completion.bash ]; then
 	. ~/.git-completion.bash
@@ -170,9 +190,6 @@ se() {
 	bide $@
 	vim $@
 }
-
-# Export haskell libraries
-export PATH="$HOME/Library/Haskell/bin:$PATH"
 
 # Editor
 alias e="vim"
