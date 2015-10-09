@@ -40,6 +40,7 @@ destD=$HOME
 sourceFiles=(
 # "setup.sh:.setup.sh"
 "bash_aliases:.bash_aliases"
+"bashrc:"
 "bash_profile:.bash_profile"
 "emacs:.emacs"
 "gitconfig:.gitconfig"
