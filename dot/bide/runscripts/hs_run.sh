@@ -3,4 +3,4 @@ file=$1
 name="${file%.*}"
 ghc $file
 ./$name
-rm $name ${name}.hi ${name}.o
+rm $name *.hi *.o

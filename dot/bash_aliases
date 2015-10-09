@@ -74,7 +74,7 @@ alias jclean="rm *.class"
 attu () {
   ssh "larioj@attu${1}.cs.washington.edu"
 }
-alias cse="cd $LOCALHOME/courses/CSE/"
+alias cse="cd $LOCALHOME/School/cse/aut15"
 alias qpp="g++ -Wall -g -std=gnu++11 -o"
 alias qp="g++ -Wall -std=gnu++11 -o"
 
@@ -194,3 +194,4 @@ se() {
 # Editor
 alias e="vim"
 alias c="cd"
+alias em="emacs -nw"
