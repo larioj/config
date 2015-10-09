@@ -51,6 +51,7 @@ fi
 if [[ $platform == 'linux' ]]; then
   # Install
   alias in="sudo apt-get install"
+  alias ls="clear; ls"
 fi
 
 # Nice little prompt
