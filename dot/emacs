@@ -10,12 +10,10 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
-
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+(global-set-key "\t" 'company-complete-common)
+(setq company-idle-delay 0)
 
 (load-file (concat user-emacs-directory "/cedet/cedet-devel-load.el"))
 (load-file (concat user-emacs-directory "cedet/contrib/cedet-contrib-load.el"))
@@ -92,14 +90,6 @@
 (setq-default save-place t)
 
 (setq scroll-conservatively 10000)
-
-;;(require 'smartparens-config)
-;;(show-smartparens-global-mode +1)
-;;(smartparens-global-mode 1)
-;;(sp-with-modes '(c-mode c++-mode)
-;;  (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
-;;  (sp-local-pair "/*" "*/" :post-handlers '((" | ") ;;"SPC"
-;;                                            ("* ||\n[i]" "RET"))))
 
 ;; Look
 (tool-bar-mode -1)
