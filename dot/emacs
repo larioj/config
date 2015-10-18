@@ -5,51 +5,110 @@
 			package-archives)
 (package-initialize)
 
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
+(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/plugins")
+
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
+
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(load-file (concat user-emacs-directory "/cedet/cedet-devel-load.el"))
+(load-file (concat user-emacs-directory "cedet/contrib/cedet-contrib-load.el"))
+
+(require 'cc-mode)
+(require 'semantic)
+
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+
+(semantic-mode 1)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(eval-after-load 'flycheck
+  '(progn
+    (set-face-attribute 'flycheck-warning nil
+      :foreground "yellow"
+      :background "red")))
+
+(require 'function-args)
+(fa-config-default)
+
+(require 'yasnippet)
+(setq yas-snippet-dirs
+  '("~/.emacs.d/snippets"
+    "~/.emacs.d/plugins/yasnippet/yasmate/snippets"
+    "~/.emacs.d/plugins/yasnippet/snippets"
+))
+(yas-global-mode 1)
+
+(load "elscreen" "ElScreen" t)
+(elscreen-start)
+
 (require 'evil)
+(require 'evil-leader)
 (evil-mode 1)
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
+
+(setq evil-move-cursor-back nil)
 
 (define-key evil-normal-state-map (kbd ";") 'evil-ex)
 (define-key evil-normal-state-map (kbd ":") 'evil-repeat-find-char)
+;;(define-key evil-normal-state-map (kbd "'") 'evil-set-marker)
+;;(define-key evil-motion-state-map (kbd "m") 'evil-goto-mark-line)
+(define-key evil-insert-state-map "\C-c" 'fa-show)
 
-(require 'powerline)
-(powerline-center-evil-theme)
+(evil-leader/set-key
+  "c" 'elscreen-create
+  "x" 'elscreen-kill
+  "n" 'elscreen-next
+  "l" 'elscreen-previous
+  "k" 'kill-buffer)
+
+(require 'evil-elscreen)
+
+;; Behaviour
+(setq-default show-trailing-whitespace t)
+
+(add-hook 'prog-mode-hook 'relative-line-numbers-mode t)
+(add-hook 'prog-mode-hook 'line-number-mode t)
+(add-hook 'prog-mode-hook 'column-number-mode t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; disable auto-save and auto-backup
-(setq auto-save-default nil)
+(setq inhibit-startup-message t)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
-(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
-(setq-default show-trailing-whitespace t)
+(require 'saveplace)
+(setq save-place-file "~/.emacs.d/saveplace")
+(setq-default save-place t)
 
-(setq kill-buffer-query-functions
-  (remq 'process-kill-buffer-query-function
-         kill-buffer-query-functions))
+(setq scroll-conservatively 10000)
 
-;; (require 'god-mode)
-;; (global-set-key (kbd "<f6>") 'god-mode)
-;; ;; (setq god-exempt-major-modes nil)
-;; ;; (setq god-exempt-predicates nil)
-;; 
-;; (defun my-update-cursor ()
-;; 	(setq cursor-type (if (or god-local-mode buffer-read-only)
-;; 											'box
-;; 											'bar)))
-;; 
-;; (add-hook 'god-mode-enabled-hook 'my-update-cursor)
-;; (add-hook 'god-mode-disabled-hook 'my-update-cursor)
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(ansi-color-faces-vector
-;;    [default default default italic underline success warning error])
-;;  '(custom-enabled-themes (quote (wombat))))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  )
+;;(require 'smartparens-config)
+;;(show-smartparens-global-mode +1)
+;;(smartparens-global-mode 1)
+;;(sp-with-modes '(c-mode c++-mode)
+;;  (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
+;;  (sp-local-pair "/*" "*/" :post-handlers '((" | ") ;;"SPC"
+;;                                            ("* ||\n[i]" "RET"))))
+
+;; Look
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+
+(require 'powerline)
+(powerline-evil-vim-color-theme)
+(display-time-mode t)
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'spolsky t)

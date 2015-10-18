@@ -2,5 +2,5 @@
 file=$1
 name="${file%.*}"
 ghc $file
-./$name
+./$name "${@:2}"
 rm $name *.hi *.o

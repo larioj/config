@@ -1,5 +1,8 @@
 #! /bin/bash
 
-gcc $1
-./a.out "${@:2}"
-rm a.out
+fullname="$1"
+name="${fullname%.*}"
+outname="${name}.out"
+gcc $fullname -o $outname
+./$outname "${@:2}"
+rm $outname

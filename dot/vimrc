@@ -115,7 +115,7 @@ let $BASH_ENV = "~/.bash_aliases"
 set mouse=a
 
 " Set default run to script
-nnoremap fr :! bide r ./%
+nnoremap fr :! ls; bide r ./%
 
 " Haskell Warning Suppression
 let g:syntastic_haskell_ghc_mod_args = '-g -fno-warn-missing-signatures'
