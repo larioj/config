@@ -15,16 +15,19 @@
 (global-set-key "\t" 'company-complete-common)
 (setq company-idle-delay 0)
 
+
+(setq company-backends (delete 'company-semantic company-backends))
+
 (load-file (concat user-emacs-directory "/cedet/cedet-devel-load.el"))
 (load-file (concat user-emacs-directory "cedet/contrib/cedet-contrib-load.el"))
 
 (require 'cc-mode)
-(require 'semantic)
+;;(require 'semantic)
 
-(global-semanticdb-minor-mode 1)
-(global-semantic-idle-scheduler-mode 1)
+;;(global-semanticdb-minor-mode 1)
+;;(global-semantic-idle-scheduler-mode 1)
 
-(semantic-mode 1)
+;;(semantic-mode 1)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (eval-after-load 'flycheck
@@ -39,14 +42,13 @@
 (require 'yasnippet)
 (setq yas-snippet-dirs
   '("~/.emacs.d/snippets"
-    "~/.emacs.d/plugins/yasnippet/yasmate/snippets"
-    "~/.emacs.d/plugins/yasnippet/snippets"
 ))
 (yas-global-mode 1)
 
 (load "elscreen" "ElScreen" t)
 (elscreen-start)
 
+(setq evil-toggle-key "C-`")
 (require 'evil)
 (require 'evil-leader)
 (evil-mode 1)
@@ -66,7 +68,9 @@
   "x" 'elscreen-kill
   "n" 'elscreen-next
   "l" 'elscreen-previous
-  "k" 'kill-buffer)
+  "k" 'kill-buffer
+  "f" 'semantic-tag-folding-fold-all
+  "F" 'semantic-tag-folding-show-all)
 
 (require 'evil-elscreen)
 
