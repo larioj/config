@@ -1,5 +1,5 @@
 #! /bin/bash
-# Script must be run from the DotFiles directory.
+# Script must be run from the config directory.
 
 # Control Flow
 showEvents="false"
@@ -38,21 +38,10 @@ getAction () {
 sourceD=$(pwd)
 destD=$HOME
 sourceFiles=(
-# "setup.sh:.setup.sh"
 "bash_aliases:.bash_aliases"
-"bashrc:"
-"bash_profile:.bash_profile"
-"emacs:.emacs"
 "gitconfig:.gitconfig"
 "haskeline:.haskeline"
 "vimrc:.vimrc"
-"vim/after:.vim/after"
-"vim/colors:.vim/colors"
-"vim/ftplugin:.vim/ftplugin"
-"vim/plugin:.vim/plugin"
-"vim/spell:"
-"vim/syntax:"
-"bide:"
 )
 
 val () {
