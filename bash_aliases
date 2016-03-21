@@ -2,14 +2,18 @@
 shopt -s expand_aliases
 
 alias i="sudo apt-get install"
-alias ls='ls --color=auto --group-directories-first'
+alias ls='clear; ls --color=auto --group-directories-first'
 
 # Nice little prompt
 PS1="$ "
 
 # General behaviour aliases
 c() {
-	cd $@
+	if [ -z "$1" ]; then
+		popd
+	else 
+		pushd $@
+	fi
 	ls
 }
 
@@ -60,3 +64,5 @@ alias e="vim"
 fp() {
 	grep -rnw "$1" -e "$2"
 }
+
+alias h="fg"
