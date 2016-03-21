@@ -1,14 +1,17 @@
 execute pathogen#infect()
 syntax on
+set nocompatible
 filetype plugin indent on
 let g:airline#extensions#tabline#enabled = 1
-
 
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set number
-colorscheme kitKat
+
+syntax enable
+set background=dark
+colorscheme solarized
 
 "Leader
 let mapleader=" "
@@ -41,7 +44,9 @@ nnoremap <leader>u <C-T>
 
 set pastetoggle=<leader>p
 
-let g:auto_save = 1
-let g:auto_save_in_insert_mode = 0
-let g:auto_save_silent = 1
-let g:auto_save_events = ["InsertLeave"]
+"let g:auto_save = 1
+"let g:auto_save_in_insert_mode = 0
+"let g:auto_save_silent = 1
+"let g:auto_save_events = ["InsertLeave"]
+
+let g:SuperTabDefaultCompletionType = 'context'

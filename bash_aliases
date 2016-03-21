@@ -2,7 +2,7 @@
 shopt -s expand_aliases
 
 alias i="sudo apt-get install"
-alias ls='ls --color=auto --group-directories-first'
+alias ls='clear; ls --color=auto --group-directories-first'
 
 # Nice little prompt
 PS1="$ "
@@ -55,7 +55,7 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 # Editor
-alias e="vim"
+alias e="nvim"
 
 fp() {
 	grep -rnw "$1" -e "$2"
