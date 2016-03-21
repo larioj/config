@@ -9,7 +9,11 @@ PS1="$ "
 
 # General behaviour aliases
 c() {
-	cd $@
+	if [ -z "$1" ]; then
+		popd
+	else 
+		pushd $@
+	fi
 	ls
 }
 
@@ -60,3 +64,5 @@ alias e="nvim"
 fp() {
 	grep -rnw "$1" -e "$2"
 }
+
+alias h="fg"
