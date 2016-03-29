@@ -59,10 +59,21 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 # Editor
-alias e="nvim"
+e() {
+	bide c $1
+	nvim $1
+}
+alias ec="vim"
+alias ecd="/opt/eclipse/eclimd &>/dev/null &"
 
 fp() {
 	grep -rnw "$1" -e "$2"
 }
 
 alias h="fg"
+
+alias v="nvim ~/.vim/init.vim"
+
+
+PLAN9=/home/larioj/plan9port export PLAN9
+PATH=$PATH:$PLAN9/bin export PATH
