@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Nice little prompt
-PS1="$ "
+PS1="\W\$ "
 
 alias s="history | grep"
 
