@@ -35,6 +35,9 @@ nnoremap tm :tabm<Space>
 " Bash Aliases in Vim
 let $BASH_ENV = "~/.bash_aliases"
 
+nnoremap ; :
+nnoremap : ;
+
 nnoremap - <C-z>
 nnoremap <leader>- ZZ
 

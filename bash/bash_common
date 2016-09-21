@@ -6,7 +6,7 @@ PS1="\W\$ "
 alias s="history | grep"
 
 # Set vim mode
-set -o vi
+# set -o vi
 
 # Find name
 alias findn="find . -name"
