@@ -1,0 +1,52 @@
+call plug#begin()
+"Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-sensible'
+Plug 'ervandew/supertab'
+Plug 'vim-airline/vim-airline'
+Plug 'derekwyatt/vim-scala'
+Plug 'vim-scripts/vim-auto-save'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+call plug#end()
+
+syntax on
+set nocompatible
+filetype plugin indent on
+let g:airline#extensions#tabline#enabled = 1
+set spell
+
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set number
+
+syntax enable
+
+inoremap {<CR> {<CR>}<Esc>ko
+
+"Leader
+let mapleader=" "
+
+"Tab navigation
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprev<CR>
+nnoremap tm :tabm<Space>
+
+" Bash Aliases in Vim
+let $BASH_ENV = "~/.bash_aliases"
+
+nnoremap - <C-z>
+nnoremap <leader>- ZZ
+
+set mouse=a
+
+"Ctags Shortcuts
+nnoremap <leader>i <C-]>
+nnoremap <leader>o <C-T>
+
+set pastetoggle=<leader>p
+
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_silent = 1
+let g:auto_save_events = ["InsertLeave"]

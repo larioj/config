@@ -1,0 +1,49 @@
+#!/bin/bash
+
+gcob() {
+	git checkout -b "$@"
+}
+
+gco() {
+	git checkout "$@"
+}
+
+gs() {
+	git status
+}
+
+gfump() {
+	git fetch upstream
+	git merge upstream/master
+	git push -u origin master
+}
+
+gac() {
+	git add "$@"
+	git commit
+}
+
+gm() {
+	git merge master
+}
+
+gacp() {
+	git add "$@"
+	git commit
+	git push
+}
+
+grau() {
+	git remote add upstream $1
+}
+
+gh() {
+	git hist
+}
+
+gb() {
+	git branch $1
+}
+
+
+

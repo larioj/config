@@ -1,0 +1,6 @@
+#! /bin/bash
+
+cd ~
+git clone --recursive https://github.com/larioj/bide.git
+cd bide
+./install.sh
