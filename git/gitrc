@@ -1,21 +1,19 @@
 #!/bin/bash
 
-gcob() {
-	git checkout -b "$@"
-}
-
-gco() {
-	git checkout "$@"
-}
-
-gs() {
-	git status
-}
+alias gcob="git checkout -b"
+alias gco="git checkout"
+alias gs="git status"
+alias gh="git hist"
+alias gb="git branch"
 
 gfump() {
+	name="$1"
+	if [ -z "$1" ]; then 
+		name="master"
+	fi
 	git fetch upstream
-	git merge upstream/master
-	git push -u origin master
+	git merge upstream/$name
+	git push -u origin $name
 }
 
 gac() {
@@ -24,7 +22,11 @@ gac() {
 }
 
 gm() {
-	git merge master
+	name="$1"
+	if [ -z "$1" ]; then 
+		name="master"
+	fi
+	git merge $name
 }
 
 gacp() {
@@ -34,16 +36,10 @@ gacp() {
 }
 
 grau() {
-	git remote add upstream $1
+	git remote add upstream http://github.com/${1}.git
 }
 
-gh() {
-	git hist
+gcl() {
+	git clone http://github.com/${1}.git $2
 }
-
-gb() {
-	git branch $1
-}
-
-
 
