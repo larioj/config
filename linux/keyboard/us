@@ -536,12 +536,6 @@ xkb_symbols "dvorak-classic" {
     key <BKSL> { [  backslash,  bar             ]       };
 };
 
-// Programmer Dvorak, by Roland Kaufmann <rlndkfmn at gmail dot com>
-// License: BSD, available at <http://www.kaufmann.no/roland/dvorak/license.html>
-// Main features: Numbers are in shift position (like French), symbols have been
-// placed in locations that give good hand-alternation and finger rolling with
-// symbols that usually follows, accented characters are possible for I18N.
-// Patch suggestions should be sent upstream.
 partial alphanumeric_keys
 xkb_symbols "dvp" {
 
@@ -559,12 +553,12 @@ xkb_symbols "dvp" {
     key <AE06> { [ equal,           9,              sterling                    ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
 
     // symbols row, right side
-    key <AE07> { [ asterisk,        0                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE08> { [ parenright,      2,              onehalf                     ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE09> { [ plus,            4                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE10> { [ bracketright,    6                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <AE11> { [ exclam,          8,              exclamdown,      U2E18      ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };  // reversed interrobang
-    key <AE12> { [ numbersign,      grave,          dead_grave                  ] };
+    key <AE07> { [ numbersign,      grave,          dead_grave                  ] };
+    key <AE08> { [ asterisk,        0                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE09> { [ parenright,      2,              onehalf                     ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE10> { [ plus,            4                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE11> { [ bracketright,    6                                           ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AE12> { [ exclam,          8,              exclamdown,      U2E18      ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
     key <BKSP> { [ BackSpace,       BackSpace                                   ] };
 
     // upper row, left side
@@ -575,31 +569,39 @@ xkb_symbols "dvp" {
     key <AD05> { [ y,               Y,              udiaeresis,      Udiaeresis ] };
 
     // upper row, right side
-    key <AD08> { [ c,               C,              ccedilla,        Ccedilla   ] };
-    key <AD09> { [ r,               R,              registered,      trademark  ] };
-    key <AD11> { [ slash,           question,       questiondown,    U203D      ] };  // interrobang
-    key <AD12> { [ at,              asciicircum,    dead_circumflex, dead_caron ] };
+    key <AD06> { [ backslash,       bar                                         ] };
+    key <AD07> { [ f,               F                                           ] };
+    key <AD08> { [ g,               G                                           ] };
+    key <AD09> { [ c,               C,              ccedilla,        Ccedilla   ] };
+    key <AD10> { [ r,               R,              registered,      trademark  ] };
+    key <AD11> { [ l,               L                                           ] };
+    key <AD12> { [ slash,           question,       questiondown,    U203D      ] };
+    key <BKSL> { [ at,              asciicircum,    dead_circumflex, dead_caron ] };
 
     // home row, left side
     key <AC01> { [ a,               A,              aring,           Aring      ] };
     key <AC02> { [ o,               O,              oslash,          Ooblique   ] };
     key <AC03> { [ e,               E,              ae,              AE         ] };
     key <AC04> { [ u,               U,              eacute,          Eacute     ] };
+    key <AC05> { [ i,               I,              iacute,          Iacute     ] };
 
     // home row, right side
-    key <AC06> { [ d,               D,              eth,             ETH        ] };
-    key <AC07> { [ h,               H,              dead_acute                  ] };
-    key <AC08> { [ t,               T,              thorn,           THORN      ] };
-    key <AC09> { [ n,               N,              ntilde,          Ntilde     ] };
-    key <AC10> { [ s,               S,              ssharp                      ] };
-    key <AC11> { [ minus,           underscore,     hyphen,          endash     ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
-    key <BKSL> { [ backslash,       bar                                         ] };
+    key <AC06> { [ minus,           underscore,     hyphen,          endash     ], type[Group1] = "FOUR_LEVEL_ALPHABETIC" };
+    key <AC07> { [ d,               D,              eth,             ETH        ] };
+    key <AC08> { [ h,               H,              dead_acute                  ] };
+    key <AC09> { [ t,               T,              thorn,           THORN      ] };
+    key <AC10> { [ n,               N,              ntilde,          Ntilde     ] };
+    key <AC11> { [ s,               S,              ssharp                      ] };
 
     // lower row, left side
     key <AB01> { [ apostrophe,      quotedbl,       dead_acute                  ] };
 
-    // do NOT hardcode this switch; use lv3:ralt_switch option instead!
-    //include "level3(ralt_switch)"
+    // lower row, right side
+    key <AB06> { [	    z,	Z		]	};
+    key <AB07> { [	    b,	B		]	};
+    key <AB08> { [	    m,	M		]	};
+    key <AB09> { [	    w,	W		]	};
+    key <AB10> { [	    v,	V		]	};
 };
 
 // phonetic layout for Russian letters on an US keyboard
