@@ -3,3 +3,4 @@
 ln -sf $(pwd)/../git/gitrc ~/.gitrc
 ln -sf $(pwd)/../git/gitconfig ~/.gitconfig
 
+ln -sf $(pwd)/../linux/bash/bash_aliases ~/.bash_aliases

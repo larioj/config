@@ -1,1 +1,4 @@
 export PS1="\W$ "
+
+alias e='exit'
+alias c='clear'
