@@ -1,11 +1,8 @@
 #!/bin/bash
 
 sudo apt-get update
-#sudo apt-get install compizconfig-settings-manager
-#sudo apt-get remove dell-super-key
-#sudo cp ~/Linux/keyboard/us /usr/share/X11/xkb/symbols/us 
-#sudo cp ~/Linux/keyboard/evdev.xml /usr/share/X11/xkb/rules/evdev.xml 
-#sudo dpkg-reconfigure xkb-data
+sudo cp ./keyboard/us /usr/share/X11/xkb/symbols/us 
+sudo dpkg-reconfigure xkb-data
 sudo apt-get install ranger caca-utils highlight atool w3m poppler-utils mediainfo
 ranger
 ranger --copy-config=all
