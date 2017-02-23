@@ -1,7 +1,8 @@
 {
     "global": {
         "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true
+        "show_in_menu_bar": true,
+        "show_profile_name_in_menu_bar": false
     },
     "profiles": [
         {
@@ -24,17 +25,20 @@
             "selected": true,
             "simple_modifications": {
                 "backslash": "escape",
-                "caps_lock": "return_or_enter",
+                "caps_lock": "q",
                 "close_bracket": "u",
                 "delete_or_backspace": "backslash",
+                "e": "return_or_enter",
                 "escape": "caps_lock",
                 "left_shift": "v",
                 "m": "right_shift",
+                "q": "w",
                 "return_or_enter": "close_bracket",
                 "right_shift": "m",
                 "t": "delete_or_backspace",
                 "u": "t",
-                "v": "left_shift"
+                "v": "left_shift",
+                "w": "e"
             },
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
