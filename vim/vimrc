@@ -30,15 +30,26 @@ inoremap {<CR> {<CR>}<Esc>ko
 let mapleader=" "
 
 "Tab navigation
-nnoremap tn :tabnext<CR>
-nnoremap tp :tabprev<CR>
-nnoremap tm :tabm<Space>
+nnoremap <leader>n :tabnext<CR>
+nnoremap <leader>p :tabprev<CR>
+nnoremap <leader>m :tabm<Space>
 
 " Bash Aliases in Vim
 let $BASH_ENV = "~/.bash_aliases"
 
 nnoremap ; :
 nnoremap : ;
+nnoremap h j
+vnoremap h j
+nnoremap t k
+vnoremap t k
+nnoremap j t
+vnoremap j t
+nnoremap v <C-v>
+vnoremap v <C-v>
+nnoremap <C-v> v
+vnoremap <C-v> v
+
 
 nnoremap - <C-z>
 nnoremap <leader>- ZZ
@@ -55,6 +66,7 @@ let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 1
 let g:auto_save_events = ["InsertLeave"]
+
 
 "nnoremap j :m .+1<CR>==
 "nnoremap k :m .-2<CR>==
