@@ -1,9 +1,9 @@
 #!/bin/bash
 
-ln -sf /Users/jlariosmurillo/Work/config/bash/bash_common ~/.bash_common
-ln -sf /Users/jlariosmurillo/Work/config/git/gitconfig ~/.gitconfig
-ln -sf /Users/jlariosmurillo/Work/config/git/gitrc ~/.gitrc
-ln -sf /Users/jlariosmurillo/Work/config/mac/bash/bash_aliases ~/.bash_aliases
-ln -sf /Users/jlariosmurillo/Work/config/mac/bash/bashrc ~/.bashrc
-ln -sf /Users/jlariosmurillo/Work/config/mac/bash/profile ~/.profile
-ln -sf /Users/jlariosmurillo/Work/config/vim/vimrc ~/.vimrc
+ln -sf /Users/larioj/Config/bash/bash_common ~/.bash_common
+ln -sf /Users/larioj/Config/git/gitconfig ~/.gitconfig
+ln -sf /Users/larioj/Config/git/gitrc ~/.gitrc
+ln -sf /Users/larioj/Config/mac/bash/bash_aliases ~/.bash_aliases
+ln -sf /Users/larioj/Config/mac/bash/bashrc ~/.bashrc
+ln -sf /Users/larioj/Config/mac/bash/profile ~/.profile
+ln -sf /Users/larioj/Config/vim/vimrc ~/.vimrc

@@ -3,42 +3,35 @@
 # Nice little prompt
 PS1="\W\$ "
 
+# Search history
 alias s="history | grep"
 
-# Set vim mode
-# set -o vi
-
 # Find name
-alias findn="find . -name"
+alias findfile="find . -name"
 
 # I always forget how to tar
 alias untar="tar -vxzf"
 alias maketar="tar -cvzf"
 
 # Memory usage
-alias mem="du -hsc"
+alias showmem="du -hsc"
 
-# make executable
-mx () {
+# Make executable
+touchx () {
 	touch $@
 	chmod u+x $@
 }
 
 # Make and move to directory
 alias md="mkdir"
-mm () {
+mkcd () {
 	mkdir $1 && cd $1
 }
-alias mf="touch"
 
-# Editor
-e() {
-	bide c $1
-	nvim $1
-}
-alias ec="vim"
-alias ecd="/opt/eclipse/eclimd &>/dev/null &"
-
-fp() {
+findtext() {
 	grep -rnw "$1" -e "$2"
 }
+
+# Convenience
+alias c='clear'
+alias q='exit'
