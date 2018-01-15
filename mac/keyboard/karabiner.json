@@ -1,7 +1,8 @@
 {
     "global": {
         "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true
+        "show_in_menu_bar": true,
+        "show_profile_name_in_menu_bar": false
     },
     "profiles": [
         {
@@ -23,18 +24,44 @@
             "name": "Default profile",
             "selected": true,
             "simple_modifications": {
+                "0": "9",
+                "6": "equal_sign",
+                "7": "6",
+                "8": "7",
+                "9": "8",
                 "backslash": "escape",
-                "caps_lock": "return_or_enter",
-                "close_bracket": "u",
-                "delete_or_backspace": "backslash",
-                "escape": "caps_lock",
+                "caps_lock": "q",
+                "close_bracket": "y",
+                "comma": "m",
+                "delete_or_backspace": "close_bracket",
+                "e": "return_or_enter",
+                "equal_sign": "hyphen",
+                "escape": "grave_accent_and_tilde",
+                "h": "quote",
+                "hyphen": "0",
+                "i": "u",
+                "j": "h",
+                "k": "j",
+                "l": "k",
                 "left_shift": "v",
                 "m": "right_shift",
-                "return_or_enter": "close_bracket",
-                "right_shift": "m",
-                "t": "delete_or_backspace",
+                "n": "slash",
+                "o": "i",
+                "open_bracket": "p",
+                "p": "o",
+                "period": "comma",
+                "q": "w",
+                "quote": "semicolon",
+                "r": "delete_or_backspace",
+                "return_or_enter": "open_bracket",
+                "right_shift": "n",
+                "semicolon": "l",
+                "slash": "period",
+                "t": "r",
                 "u": "t",
-                "v": "left_shift"
+                "v": "left_shift",
+                "w": "e",
+                "y": "backslash"
             },
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
