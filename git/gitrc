@@ -12,7 +12,7 @@ alias gh="git hist | head -n 10"
 alias gpu="git push -u origin"
 alias gpf="git push -f origin"
 alias gd="git diff"
-alias gg="git grep"
+alias gg="git grep -n"
 
 grih() {
   git rebase -i HEAD~$1
@@ -33,6 +33,11 @@ gac() {
 	git commit
 }
 
+gacm() {
+	git add "$1"
+	git commit -m "$2"
+}
+
 gm() {
 	name="$1"
 	if [ -z "$1" ]; then 
@@ -48,10 +53,14 @@ gacp() {
 }
 
 grau() {
-	git remote add upstream http://github.com/${1}.git
+	git remote add upstream https://github.com/${1}.git
 }
 
 gcl() {
-	git clone http://github.com/${1}.git $2
+	git clone https://github.com/${1}.git $2
 }
 
+gcop() {
+  git fetch origin ref/pull/$1/head:$1
+  gco $1
+}

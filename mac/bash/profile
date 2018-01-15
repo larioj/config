@@ -1,44 +1,37 @@
-# The orginal version is saved in .profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/bin:${PATH}"
-export PATH
-
-# Plan9
-PLAN9=/Users/jlariosmurillo/Downloads/plan9port export PLAN9
-PATH=$PATH:$PLAN9/bin export PATH
-
+export PS1="\W\$ "
+export PLAN9="/usr/local/plan9"
+export X11="/usr/X11"
 export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M"
+export HISTSIZE="99999999"
+export PAGER=cat
+export GOPATH="$HOME/go"
+export PATH="/usr/local/bin"\
+:"/usr/bin"\
+:"/bin"\
+:"/usr/sbin"\
+:"/sbin"\
+:"/usr/local/opt/go/libexec/bin"\
+:"/opt/X11/bin"\
+:"$GOPATH/bin"\
+:"/usr/local/personal/bin"\
+:"$PLAN9/bin"\
+:"/usr/X11/bin"
 
-PS1="\W\$ "
-alias s="history | grep"
-alias ls="ls -Gh"
-source ~/.gitrc
-source ~/.bash_common
+export EDITOR=vim
+export PAGER=nobs
+export home=$HOME
+export prompt="$PS1"
+export user=$USER
+unset FCEDIT VISUAL
+
+if [ -e $HOME/.gitrc ]; then
+  . $HOME/.gitrc
+fi
+
+if [ -e $HOME/.bash_common ]; then
+  . $HOME/.bash_common
+fi
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
-
-export HISTSIZE="99999999" 
-
-testRelease() {
-  sbt 'compile' && \
-    sbt 'test:compile' && \
-    sbt 'it:compile' && \
-    sbt 'test' && \
-    sbt 'scalastyle' && \
-    sbt 'test:scalastyle' && \
-    sbt 'it:scalastyle'
-}
-alias c='clear'
-alias e='exit'
-
-alias ts='tox -e py35-syntax'
-alias ti='tox -e py35-integration'
-alias tu='tox -e py35-unit'
-alias sc='source ~/Work/larioj.github.io/cli-configure.sh'
-alias e='exit'
-
-# Setting PATH for Python 3.5
-# The orginal version is saved in .profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
-export PATH
